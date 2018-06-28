@@ -1,0 +1,5 @@
+io/github/kamaudan/Reddy/model/User.class
+io/github/kamaudan/Reddy/Reddy.class
+io/github/kamaudan/Reddy/model/UserApi.class
+io/github/kamaudan/Reddy/UserRepository/UserRepository.class
+io/github/kamaudan/Reddy/UserRepository/UserRepositoryImpl.class
