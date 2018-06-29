@@ -2,7 +2,7 @@ package io.github.kamaudan.Reddy.UserRepository;
 
 import io.github.kamaudan.Reddy.model.User;
 
-import java.util.List;
+
 import java.util.Map;
 
 public interface UserRepository {

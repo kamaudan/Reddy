@@ -1,7 +1,9 @@
-package io.github.kamaudan.Reddy.model;
+package io.github.kamaudan.Reddy.Controllers;
 
 
 import io.github.kamaudan.Reddy.UserRepository.UserRepository;
+import io.github.kamaudan.Reddy.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +16,7 @@ import java.util.Map;
 public class UserApi
 {
 
+    @Autowired
     private UserRepository userRepository;
 
     public UserApi(UserRepository userRepository) {
@@ -21,11 +24,14 @@ public class UserApi
     }
 
 
-    @GetMapping("/add/{id}/name")
+    @GetMapping("/add/{id}/{name}")
     public User add(@PathVariable("id") final String id,
                     @PathVariable("name") final String name){
 
+
+
         userRepository.save(new User(id, name, 111100L));
+
 
         return  userRepository.findById(id);
     }
@@ -34,10 +40,14 @@ public class UserApi
     @GetMapping("/update/{id}/{name}")
     public User update(@PathVariable("id") final String id,
                        @PathVariable("name") final String name){
+
+
         userRepository.update(new User(id, name, 1000L));
 
         return  userRepository.findById(id);
     }
+
+
 
     @GetMapping("/all")
     public Map<String, User> findAll(){
@@ -47,6 +57,14 @@ public class UserApi
 
 
 
+
+    @GetMapping("/delete/{id}")
+    public  User delete(@PathVariable("id") final  String id) {
+
+        userRepository.delete(id);
+
+        return  userRepository.findById(id);
+        }
 
 
 }
